@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Prediksi HotSpot Penangkapan Tuna</title>
+</head>
+<body>
+   <center><h1>HotSpot Penangkapan Ikan Indramayu</h1>
+    <h4>Created by: Dr.Asep Sandra B, MSi - PRIMA BRIN</h3>
+    <h4>Funding Project: RP SPK Berdasarkan Analisis Citra Satelit TA 2024</h3>
+    <h4>OR Elektronika dan Informatika BRIN</h3></center>
+       
+    <form method="POST" action="/process">
+        <label for="day">Pilih Hari:</label>
+        <select name="day" id="day">
+            {% for i in range(1, 4) %}
+                <option value="{{ i }}">{{ i - 1 }} Hari kedepan </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Proses</button>
+    </form>
+    
+    <div id="plot">
+        {% if map_url %}
+            <img src="data:image/png;base64,{{ map_url }}" alt="Peta Indonesia">            
+        {% endif %}
+        {% if plot_url %}
+            <img src="data:image/png;base64,{{ plot_url }}" alt="HotSpot Penangkapan ikan">
+        {% endif %}
+    </div>
+
+</body>
+</html>
